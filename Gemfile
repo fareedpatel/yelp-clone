@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'shoulda'
+  gem 'database_cleaner'
+  gem 'rspec-collection_matchers'
 end
 
 # Use ActiveModel has_secure_password
