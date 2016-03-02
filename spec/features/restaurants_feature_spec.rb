@@ -72,20 +72,6 @@ feature 'restaurants' do
     end
   end
   
-  context 'Adding reviews' do 
-        
-    scenario 'a user can add a review' do
-      visit '/restaurants'
-      click_link "Review KFC"
-      fill_in "Comment", with: "So so"
-      choose 'review[rating]', option: 3
-      click_button "Submit"
-      expect(page).to have_content "Review submitted"
-      click_link 'KFC'
-      expect(page).to have_content "So so, 3"
-    end
-  end
-  
   context 'validations' do
     
     scenario 'User cannot create a duplicate restaurant' do

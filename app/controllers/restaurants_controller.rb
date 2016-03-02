@@ -2,8 +2,9 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @value = Review.group(:restaurant).average(:rating) 
   end
-  
+
   def new
     @restaurant = Restaurant.new
   end
@@ -13,7 +14,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-      restaurant = Restaurant.new(restaurant_params)
+    restaurant = Restaurant.new(restaurant_params)
     if restaurant.save
       redirect_to restaurants_path
     else
@@ -42,6 +43,4 @@ class RestaurantsController < ApplicationController
     flash[:notice] = 'Restaurant deleted successfully'
     redirect_to restaurants_path
   end
-
-                                  
 end
