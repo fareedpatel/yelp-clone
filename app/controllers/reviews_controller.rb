@@ -1,16 +1,18 @@
 class ReviewsController < ApplicationController
-	def new
-		@restaurant = Restaurant.find(params[:restaurant_id])
-		@review = Review.new
-	end
+  before_action :authenticate_user!
 
-	def create
-		@restaurant = Restaurant.find(params[:restaurant_id])
-		@restaurant.reviews.create(review_params)
-		redirect_to restaurants_path
-	end
+  def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = Review.new
+  end
 
-	def review_params
-		params.require(:review).permit(:thoughts, :ratings)
-	end
+  def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant.reviews.create(review_params)
+    redirect_to restaurants_path
+  end
+
+  def review_params
+    params.require(:review).permit(:thoughts, :ratings)
+  end
 end

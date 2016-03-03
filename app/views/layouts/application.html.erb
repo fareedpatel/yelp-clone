@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>YelpClone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>YelpClone</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <style>
+            ul.hmenu {
+                list-style: none;
+                margin: 0 0 2em;
+                padding: 0;
+            }
 
-<%= notice %>
-<%= yield %>
-
-</body>
+            ul.hmenu li {
+                display: inline;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= notice %>
+        <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+        </ul>
+        <%= yield %>
+    </body>
 </html>
