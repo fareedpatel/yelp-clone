@@ -1,6 +1,7 @@
 feature 'Reviews' do
   before(:each) do
      Restaurant.create name: 'KFC' 
+     sign_up
   end
  
   context 'Adding reviews' do 
