@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    @value = Review.group(:restaurant).average(:rating) 
+    @value = Review.group(:restaurant).average(:rating)
   end
 
   def new

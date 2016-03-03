@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'reviews/new'
+  get 'users/new'
+
+  devise_for :users
 
   get 'review/new'
 
