@@ -8,5 +8,12 @@ RSpec.describe Restaurant, type: :model do
   	expect(restaurant).to have(1).error_on(:name)
   	expect(restaurant).not_to be_valid
   end
+
+  it 'is not valid with a previously named restaurant' do
+  	restaurant = Restaurant.create(name: "kfc")
+    restaurant2 = Restaurant.new(name:"kfc")
+  	expect(restaurant2).to have(1).error_on(:name)
+  	expect(restaurant2).not_to be_valid
+  end
 end
 
