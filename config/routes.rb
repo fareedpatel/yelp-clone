@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-  devise_for :users
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  #devise_scope :user do
+  #  delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  #end
+  
   get 'review/new'
 
   # You can have the root of your site routed with "root"

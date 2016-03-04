@@ -8,9 +8,9 @@ end
 def sign_up(username = 'test@ymail.com', password = 'supersecret', confirm_password = 'supersecret')
   visit '/'
   click_link "Sign Up"
-  fill_in 'user[email]', with: 'test@ymail.com'
-  fill_in 'user[password]', with: 'supersecret'
-  fill_in 'user[password_confirmation]', with: 'supersecret'
+  fill_in 'user[email]', with: username
+  fill_in 'user[password]', with: password
+  fill_in 'user[password_confirmation]', with: confirm_password
   click_button "Sign up"
 end
 
